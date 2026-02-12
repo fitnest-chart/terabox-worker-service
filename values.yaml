@@ -1,0 +1,31 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/fitnest-backend/terabox-worker
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 9090
+
+istio:
+  enabled: true
+  mtls:
+    mode: STRICT
+
+env:
+  TERABOX_NDUS: "Yb8V8X8peHuidcY8XOx11JOaTl5cf_3je8CsYLoo"
+  TERABOX_APP_ID: "250528"
+  TERABOX_UPLOAD_ID: "N1-ODUuMTMyLjI3LjIyNjoxNzY5NDk1MDcwOjg2ODczODc4Mzc4Mzk3NDYzMDA="
+  TERABOX_JS_TOKEN: "BB04F91D937F292A33FB2D21F7B47DA99394307EED9123765BEB5FF013E77D902A16F39D17C9CDF3F033AE98437AC2E45F2E8599F7544D15D1E90878AC8198C4"
+  TERABOX_BROWSER_ID: "GFfVsMdx91iLbvq0-wAW4AVIoXEM4rrP5VFCpqDWXnXd75NYzR7E5Spb3-c="
+  TERABOX_WORKER_PORT: "9090"
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
