@@ -11,4 +11,7 @@ spec:
       {{- include "terabox-worker-service.selectorLabels" . | nindent 6 }}
   mtls:
     mode: {{ .Values.istio.mtls.mode | default "STRICT" }}
+    {{- if .Values.istio.mtls.defaultMode }}
+    defaultMode: {{ .Values.istio.mtls.defaultMode }}
+    {{- end }}
 {{- end }}
