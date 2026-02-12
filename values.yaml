@@ -12,13 +12,18 @@ istio:
   enabled: true
   mtls:
     mode: STRICT
+  authorization:
+    internalCallers:
+      - "cluster.local/ns/fitnest-dev/sa/user-service"
 env:
-  TERABOX_NDUS: "YqmCeLPpeHuikL1swUJc-p1wxDpKgTLfnMMS61wM"
+  TERABOX_NDUS: ""  # Set from GitHub secrets in CI/CD
   TERABOX_APP_ID: "250528"
-  TERABOX_UPLOAD_ID: "N1-ODUuMTMyLjI3LjIyNjoxNzcwODk1MzI3OjkwNjMyNjYzNzY4MDQwNTMwNTI="
-  TERABOX_JS_TOKEN: "87BA6EE259890AB9F484E3FF8941203E915447B9618A5D5ECBCDBC4504AA915A06C8B6A176806D7AAAD04B8AB19A6A9CEB3DA245435EF5AE26C4FD9AB407FE5B"
-  TERABOX_BROWSER_ID: "1509IaJc0mCa5RYruyP3etYaUR3RwuBiZaDDEIpR4PUYFkT8WQlbFEZUS2Y="
-  TERABOX_BDSTOKEN: "d5d01bb1e7db2bf8db3c11b5a1a2f14e"
+  TERABOX_UPLOAD_ID: ""  # Set from GitHub secrets in CI/CD
+  TERABOX_JS_TOKEN: ""  # Set from GitHub secrets in CI/CD
+  TERABOX_BROWSER_ID: ""  # Set from GitHub secrets in CI/CD
+  TERABOX_BDSTOKEN: ""  # Set from GitHub secrets in CI/CD
+  TERABOX_USERNAME: ""  # Set from GitHub secrets in CI/CD
+  TERABOX_PASSWORD: ""  # Set from GitHub secrets in CI/CD
   TERABOX_WORKER_PORT: "9090"
 resources:
   limits:
