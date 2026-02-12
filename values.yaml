@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/fitnest-backend/terabox-worker
-  tag: "development-915780f"
+  tag: "development-41fef4f"
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
