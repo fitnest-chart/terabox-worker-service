@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/fitnest-backend/terabox-worker-service
-  tag: "development-9556e0f"
+  tag: "development-c747510"
   pullPolicy: Always
   imagePullSecrets:
     - name: ghcr-secret
@@ -16,14 +16,14 @@ istio:
     internalCallers:
       - "cluster.local/ns/fitnest-dev/sa/user-service"
 env:
-  TERABOX_NDUS: ""  # Set from GitHub secrets in CI/CD
+  TERABOX_NDUS: "" # Set from GitHub secrets in CI/CD
   TERABOX_APP_ID: "250528"
-  TERABOX_UPLOAD_ID: ""  # Set from GitHub secrets in CI/CD
-  TERABOX_JS_TOKEN: ""  # Set from GitHub secrets in CI/CD
-  TERABOX_BROWSER_ID: ""  # Set from GitHub secrets in CI/CD
-  TERABOX_BDSTOKEN: ""  # Set from GitHub secrets in CI/CD
-  TERABOX_USERNAME: ""  # Set from GitHub secrets in CI/CD
-  TERABOX_PASSWORD: ""  # Set from GitHub secrets in CI/CD
+  TERABOX_UPLOAD_ID: "" # Set from GitHub secrets in CI/CD
+  TERABOX_JS_TOKEN: "" # Set from GitHub secrets in CI/CD
+  TERABOX_BROWSER_ID: "" # Set from GitHub secrets in CI/CD
+  TERABOX_BDSTOKEN: "" # Set from GitHub secrets in CI/CD
+  TERABOX_USERNAME: "" # Set from GitHub secrets in CI/CD
+  TERABOX_PASSWORD: "" # Set from GitHub secrets in CI/CD
   TERABOX_WORKER_PORT: "9090"
 resources:
   limits:
