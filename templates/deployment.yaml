@@ -18,12 +18,13 @@ spec:
         sidecar.istio.io/inject: "true"
         {{- end }}
     spec:
+      serviceAccountName: {{ include "terabox-worker-service.fullname" . }}
       containers:
         - name: terabox-worker-service
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: grpc
+            - name: http
               containerPort: 9090
               protocol: TCP
           env:

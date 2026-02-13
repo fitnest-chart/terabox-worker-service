@@ -10,6 +10,6 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: 9090
       protocol: TCP
-      name: grpc
+      name: http
   selector:
     {{- include "terabox-worker-service.selectorLabels" . | nindent 4 }}

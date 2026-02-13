@@ -15,6 +15,7 @@ istio:
   authorization:
     internalCallers:
       - "cluster.local/ns/fitnest-dev/sa/user-service"
+      - "cluster.local/ns/fitnest-dev/sa/media-service"
 env:
   TERABOX_NDUS: "" # Set from GitHub secrets in CI/CD
   TERABOX_APP_ID: "250528"
