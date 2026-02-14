@@ -26,6 +26,7 @@ env:
   TERABOX_USERNAME: "" # Set from GitHub secrets in CI/CD
   TERABOX_PASSWORD: "" # Set from GitHub secrets in CI/CD
   TERABOX_WORKER_PORT: "9090"
+  LOG_LEVEL: "debug"
 resources:
   limits:
     cpu: 200m
