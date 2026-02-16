@@ -11,5 +11,26 @@ spec:
       {{- include "terabox-worker-service.selectorLabels" . | nindent 6 }}
   action: ALLOW
   rules:
-  - {}
+  # Allow internal service-to-service calls (REST)
+  - to:
+    - operation:
+        methods: ["GET", "POST", "PUT", "DELETE"]
+        paths: ["/api/v1/files/*", "/api/v1/files/**"]
+    - operation:
+        ports: ["9090"]
+
+  # Allow download endpoint for user-service
+  - to:
+    - operation:
+        methods: ["GET"]
+        paths: ["/api/v1/files/download"]
+
+  # Allow public endpoints (health)
+  - to:
+    - operation:
+        methods: ["GET"]
+        paths:
+          - "/health"
+          - "/health/*"
+          - "/api/v1/files/media/terabox/*"
 {{- end }}
