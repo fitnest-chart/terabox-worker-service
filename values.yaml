@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/fitnest-backend/terabox-worker-service
-  tag: "development-e41db26"
+  tag: "development-b8c2da8"
   pullPolicy: Always
   imagePullSecrets:
     - name: ghcr-secret
