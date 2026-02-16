@@ -27,6 +27,9 @@ env:
   TERABOX_NDUT_FMV: "f7639f25995717a37bef8af787b843baf46e83529dd7f79eabe7aa56b95fb6449e0f4309f4d4135acdfb49aa548a64ee8d96e622d7650369e2bc2e1a106daf8d4782a6cf23d73d96d0b1a532cafeb19f571711e39ea23605d38879b08b0addb54bfe3f382592bd807f2dfe9bbdf00c40"
   TERABOX_CSRF_TOKEN: "kO6cBP4LtPc2ZgfdEiW-su_z"
   TERABOX_WORKER_PORT: "9090"
+  REDIS_HOST: "redis.fitnest-dev.svc.cluster.local"
+  REDIS_PORT: "6379"
+  REDIS_PASSWORD: ""
   LOG_LEVEL: "info"
 resources:
   limits:
