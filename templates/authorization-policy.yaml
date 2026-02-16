@@ -12,14 +12,7 @@ spec:
   action: ALLOW
   rules:
   # Allow internal service-to-service calls (REST)
-  - from:
-    - source:
-        {{- if .Values.istio.authorization }}
-        {{- if .Values.istio.authorization.internalCallers }}
-        principals: {{ .Values.istio.authorization.internalCallers | toJson }}
-        {{- end }}
-        {{- end }}
-    to:
+  - to:
     - operation:
         methods: ["GET", "POST", "PUT", "DELETE"]
         paths: ["/api/v1/upload/*", "/api/v1/upload/**"]
