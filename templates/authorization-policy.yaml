@@ -39,4 +39,5 @@ spec:
         paths:
           - "/health"
           - "/health/*"
+          - "/api/v1/upload/media/terabox/*"
 {{- end }}
