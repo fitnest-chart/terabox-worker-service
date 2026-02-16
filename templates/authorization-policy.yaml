@@ -26,6 +26,12 @@ spec:
     - operation:
         ports: ["9090"]
 
+  # Allow download endpoint for user-service
+  - to:
+    - operation:
+        methods: ["GET"]
+        paths: ["/api/v1/upload/download"]
+
   # Allow public endpoints (health)
   - to:
     - operation:
