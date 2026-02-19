@@ -1,8 +1,8 @@
-{{- define "terabox-worker-service.name" -}}
+{{- define "storage-service.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
-{{- define "terabox-worker-service.fullname" -}}
+{{- define "storage-service.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -11,14 +11,14 @@
 {{- end }}
 {{- end }}
 
-{{- define "terabox-worker-service.labels" -}}
+{{- define "storage-service.labels" -}}
 helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-app.kubernetes.io/name: {{ include "terabox-worker-service.name" . }}
+app.kubernetes.io/name: {{ include "storage-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
-{{- define "terabox-worker-service.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "terabox-worker-service.name" . }}
+{{- define "storage-service.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "storage-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}

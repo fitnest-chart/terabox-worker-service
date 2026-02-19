@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "terabox-worker-service.fullname" . }}
+  name: {{ include "storage-service.fullname" . }}
   labels:
-    {{- include "terabox-worker-service.labels" . | nindent 4 }}
+    {{- include "storage-service.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "terabox-worker-service.selectorLabels" . | nindent 6 }}
+      {{- include "storage-service.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "terabox-worker-service.selectorLabels" . | nindent 8 }}
+        {{- include "storage-service.selectorLabels" . | nindent 8 }}
       annotations:
         {{- if .Values.istio.enabled }}
         sidecar.istio.io/inject: "true"
         {{- end }}
     spec:
-      serviceAccountName: {{ include "terabox-worker-service.fullname" . }}
+      serviceAccountName: {{ include "storage-service.fullname" . }}
       containers:
-        - name: terabox-worker-service
+        - name: storage-service
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

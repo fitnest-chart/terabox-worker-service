@@ -2,13 +2,13 @@
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:
-  name: {{ include "terabox-worker-service.fullname" . }}-mtls
+  name: {{ include "storage-service.fullname" . }}-mtls
   labels:
-    {{- include "terabox-worker-service.labels" . | nindent 4 }}
+    {{- include "storage-service.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      {{- include "terabox-worker-service.selectorLabels" . | nindent 6 }}
+      {{- include "storage-service.selectorLabels" . | nindent 6 }}
   mtls:
     mode: {{ .Values.istio.mtls.mode | default "STRICT" }}
     {{- if .Values.istio.mtls.defaultMode }}

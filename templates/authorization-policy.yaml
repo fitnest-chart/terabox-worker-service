@@ -2,13 +2,13 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: {{ include "terabox-worker-service.fullname" . }}-allow-internal
+  name: {{ include "storage-service.fullname" . }}-allow-internal
   labels:
-    {{- include "terabox-worker-service.labels" . | nindent 4 }}
+    {{- include "storage-service.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      {{- include "terabox-worker-service.selectorLabels" . | nindent 6 }}
+      {{- include "storage-service.selectorLabels" . | nindent 6 }}
   action: ALLOW
   rules:
   # Allow internal service-to-service calls (REST and gRPC)
@@ -33,5 +33,5 @@ spec:
         paths:
           - "/health"
           - "/health/*"
-          - "/api/v1/files/media/terabox/*"
+          - "/api/v1/files/media/storage/*"
 {{- end }}
