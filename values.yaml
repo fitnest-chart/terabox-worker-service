@@ -15,7 +15,7 @@ istio:
   authorization:
     internalCallers:
       - "cluster.local/ns/fitnest-dev/sa/user-service"
-      - "cluster.local/ns/fitnest-dev/sa/marketplace-service"
+      - "cluster.local/ns/fitnest-dev/sa/catalog-service"
 env:
   STORAGE_EMAIL: "fitnestazerbaijan@gmail.com"
   STORAGE_PASSWORD: "Fitnest123!"
