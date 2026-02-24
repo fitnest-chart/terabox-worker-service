@@ -18,6 +18,7 @@ istio:
       - "cluster.local/ns/fitnest-dev/sa/catalog-service"
 env:
   STORAGE_EMAIL: "fitnestazerbaijan@gmail.com"
+  SPRINGDOC_SERVER_URL: "https://dev-api.fitnest.az"
   STORAGE_PASSWORD: "Fitnest123!"
   STORAGE_PORT: "9090"
   REDIS_HOST: "redis.fitnest-dev.svc.cluster.local"
