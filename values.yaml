@@ -26,8 +26,8 @@ env:
   LOG_LEVEL: "info"
 resources:
   limits:
-    cpu: 200m
-    memory: 256Mi
+    memory: 512Mi
+    cpu: 500m
   requests:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 250m
+    memory: 256Mi
