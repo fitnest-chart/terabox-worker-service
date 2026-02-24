@@ -1,0 +1,33 @@
+replicaCount: 1
+image:
+  repository: ghcr.io/fitnest-backend/storage-service
+  tag: "development-ba75bf6"
+  pullPolicy: Always
+  imagePullSecrets:
+    - name: ghcr-secret
+service:
+  type: ClusterIP
+  port: 9090
+istio:
+  enabled: true
+  mtls:
+    mode: STRICT
+  authorization:
+    internalCallers:
+      - "cluster.local/ns/fitnest-dev/sa/user-service"
+      - "cluster.local/ns/fitnest-dev/sa/catalog-service"
+env:
+  STORAGE_EMAIL: "fitnestazerbaijan@gmail.com"
+  STORAGE_PASSWORD: "Fitnest123!"
+  STORAGE_PORT: "9090"
+  REDIS_HOST: "redis.fitnest-dev.svc.cluster.local"
+  REDIS_PORT: "6379"
+  REDIS_PASSWORD: ""
+  LOG_LEVEL: "info"
+resources:
+  limits:
+    memory: 512Mi
+    cpu: 500m
+  requests:
+    cpu: 250m
+    memory: 256Mi
