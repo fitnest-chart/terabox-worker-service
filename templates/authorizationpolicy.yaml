@@ -1,15 +1,15 @@
-{ { - if .Values.istio.enabled } }
+{{- if .Values.istio.enabled}}
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: { { include "storage-service.fullname" . } }-auth-policy
-  namespace: { { .Release.Namespace } }
+  name: {{ include "storage-service.fullname" . }}-auth-policy
+  namespace: {{ .Release.Namespace}}
   labels:
-    { { - include "storage-service.labels" . | nindent 4 } }
+    {{- include "storage-service.labels" . | nindent 4}}
 spec:
   selector:
     matchLabels:
-      { { - include "storage-service.selectorLabels" . | nindent 6 } }
+      {{- include "storage-service.selectorLabels" . | nindent 6}}
   action: ALLOW
   rules:
     - from:
@@ -17,4 +17,4 @@ spec:
             principals:
               - "cluster.local/ns/{{ .Release.Namespace }}/sa/api-gateway-sa"
               # Add other internal service accounts here if they need to call this service directly
-  { { - end } }
+  {{- end}}
